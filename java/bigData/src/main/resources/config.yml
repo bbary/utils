@@ -1,0 +1,31 @@
+kerberos:
+  principal:
+  keytab:
+  krb5:
+
+hbase:
+  hbase_site:
+  core_site:
+  table_objets:
+
+hadoop:
+  hdfs_site:
+  hadoop_core_site:
+
+hive:
+  principal:
+  server:
+  port:
+  exec_engine: spark|mr|tez
+  mr_memory: -Xmx7048m
+  db_integ:
+
+impala:
+  principal:
+  server:
+  port:
+
+kafka:
+  broker_list:
+  producer_batch_size:
+  producer_buffer_memory:

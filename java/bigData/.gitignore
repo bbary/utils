@@ -1,0 +1,10 @@
+# Maven specific
+target/
+# Project specific
+logs/
+err/
+src/main/resources/local_conf/
+
+# IntelliJ
+.idea
+*.iml
