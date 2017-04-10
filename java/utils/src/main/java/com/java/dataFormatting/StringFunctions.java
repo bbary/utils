@@ -33,5 +33,16 @@ public class StringFunctions {
         System.out.println(String.format("%s%s matches regular  expression %s", input3, StringUtils.repeat(" ", 20-input3.length()), input3.matches(regEx)));
         System.out.println(String.format("%s%s matches regular  expression %s", input4, StringUtils.repeat(" ", 20-input4.length()), input4.matches(regEx)));
         System.out.println(String.format("%s%s matches regular  expression %s", input5, StringUtils.repeat(" ", 20-input5.length()), input5.matches(regEx)));
+
+        regEx = "\\d*(,\\d*)*";
+
+        input1 = "600,1,9999";
+        input2 = "600,1,A";
+
+        System.out.println("Regular expression: "+regEx);
+        System.out.println(String.format("%s%s matches regular  expression %s", input1, StringUtils.repeat(" ", 20-input1.length()), input1.matches(regEx)));
+        System.out.println(String.format("%s%s matches regular  expression %s", input2, StringUtils.repeat(" ", 20-input2.length()), input2.matches(regEx)));
+
+
     }
 }
