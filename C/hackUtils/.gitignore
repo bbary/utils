@@ -1,0 +1,5 @@
+#IDE
+.cproject  
+.project   
+.settings/ 
+Debug/
