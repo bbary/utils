@@ -1,6 +1,9 @@
 package com.java;
 
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * @author: brahim bahri
@@ -10,6 +13,15 @@ public class HelloWorld {
 
     public static void main(String[] args){
         System.out.println("Hello world §");
+        String userName = System.getProperty("user.name");
+        System.out.println(userName);
+
+        Properties props = new Properties();
+        props.put("p1", "hi");
+        props.put("p2", "hello");
+        Map<String, String> map = (Map)props;
+        System.out.println(map);
+
     }
 
 }
