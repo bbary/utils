@@ -2,7 +2,7 @@
 enum orientationEnum{
     N, E, S, W;
 
-    static public orientationEnum parse(char or){
+    public orientationEnum parse(char or){
         switch(or){
             case 'N':
                 return N;
@@ -19,12 +19,42 @@ enum orientationEnum{
         }
         return null;
     }
+
+    public orientationEnum rotateD(){
+        switch(this){
+            case N:
+                return E;
+            case E:
+                return S;
+            case S:
+                return W;
+            case W:
+                return N;
+            default:
+                return null;
+        }
+    }
+
+    public orientationEnum rotateG(){
+        switch(this){
+            case N:
+                return W;
+            case W:
+                return S;
+            case S:
+                return E;
+            case E:
+                return N;
+            default:
+                return null;
+        }
+    }
 }
 
 enum moveEnum{
     D, G, A;
 
-    static public moveEnum parse(char move){
+    public moveEnum parse(char move){
         switch(move){
             case 'D':
                 return D;

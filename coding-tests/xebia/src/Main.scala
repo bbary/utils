@@ -33,9 +33,9 @@ object Main {
   yMax = line.split(" ")(1).toInt
 
   for(line <- lines) {
-    pos = new Position(line.split(" ")(0).toInt, line.split(" ")(1).toInt, orientationEnum.parse(line.split(" ")(2).charAt(0)))
+    pos = new Position(line.split(" ")(0).toInt, line.split(" ")(1).toInt, orientationEnum.valueOf(line.split(" ")(2)))
     for(step <- lines.next().toCharArray){
-       pos.move(moveEnum.parse(step))
+       pos.move(moveEnum.valueOf(step.toString), xMax, yMax)
     }
     println(pos)
   }
