@@ -1,6 +1,8 @@
 
 
-import scala.io.Source
+import java.io.FileNotFoundException
+
+import scala.io.{BufferedSource, Source}
 
 /**
   * Created by brahim on 9/17/17.
@@ -11,9 +13,15 @@ object Main {
 
   // read input
   val path: String = "./resources/input"
-  try{
-    val file = Source.fromFile(path)
-  catch(e: Exp)
+  var file: BufferedSource = null
+  try
+      file = Source.fromFile(path)
+  catch {
+      case ioe: FileNotFoundException =>
+        println("File not found")
+        ioe.printStackTrace()
+  }
+
   var xMax, yMax = 0
   var pos: Position = null
   var line: String = null
