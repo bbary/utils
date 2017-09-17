@@ -22,6 +22,10 @@ public class HelloWorld {
         Map<String, String> map = (Map)props;
         System.out.println(map);
 
+        String date_deb="20170504";
+        String date_fin="20170505";
+        System.out.println(date_deb.compareTo(date_fin));
+
     }
 
 }
