@@ -2,7 +2,7 @@
 enum orientationEnum{
     N, E, S, W;
 
-    public orientationEnum parse(char or){
+    static public orientationEnum parse(char or){
         switch(or){
             case 'N':
                 return N;
@@ -54,7 +54,7 @@ enum orientationEnum{
 enum moveEnum{
     D, G, A;
 
-    public moveEnum parse(char move){
+    static public moveEnum parse(char move){
         switch(move){
             case 'D':
                 return D;

@@ -18,7 +18,7 @@ object Main {
       file = Source.fromFile(path)
   catch {
       case ioe: FileNotFoundException =>
-        println("File not found")
+        println("File not found. Check the given Path")
         ioe.printStackTrace()
   }
 
@@ -27,15 +27,33 @@ object Main {
   var line: String = null
 
 
-  val lines: Iterator[String] = file.getLines()
+  val lines: Iterator[String] = file.getLines().filter( line => !line.isEmpty) // avoid empty lines
   line = lines.next
+  if(line.split(" ").length != 2){
+    println(s"incorrect line entry '$line', expecting two Ints")
+    sys.exit(1)
+  }
   xMax = line.split(" ")(0).toInt
   yMax = line.split(" ")(1).toInt
 
   for(line <- lines) {
-    pos = new Position(line.split(" ")(0).toInt, line.split(" ")(1).toInt, orientationEnum.valueOf(line.split(" ")(2)))
-    for(step <- lines.next().toCharArray){
-       pos.move(moveEnum.valueOf(step.toString), xMax, yMax)
+    if ( line.split(" ")(0).toInt > xMax || line.split(" ")(1).toInt > yMax){
+      println(s"found incorrect coordinates because they are outside of the rectangle '(${line.split(" ")(0).toInt}, ${line.split(" ")(1).toInt})'")
+      sys.exit(1)
+    }
+    if(line.split(" ").length != 3){
+      println(s"incorrect line entry '$line', expecting two Ints and a char")
+      sys.exit(1)
+    }
+    pos = new Position(line.split(" ")(0).toInt, line.split(" ")(1).toInt, orientationEnum.parse(line.split(" ")(2).charAt(0)))
+
+    val steps = lines.next()
+    if(steps.split(" ").length != 1){
+      println(s"incorrect line entry '$steps', expecting a list of characters with no spaces")
+      sys.exit(1)
+    }
+    for(step <- steps.toCharArray){
+       pos.move(moveEnum.parse(step), xMax, yMax)
     }
     println(pos)
   }
