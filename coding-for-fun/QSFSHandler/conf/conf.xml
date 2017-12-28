@@ -1,0 +1,11 @@
+<quickserver>
+    <name>Quick Server File System Handler v 0.1</name>
+    <port>8030</port>
+    <bind-address>0.0.0.0</bind-address>
+
+    <client-command-handler>
+        main.QuickServerFSServer
+    </client-command-handler>
+
+    <application-jar-path>../target/quickServerFS.jar</application-jar-path>
+</quickserver>
